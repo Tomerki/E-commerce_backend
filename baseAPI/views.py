@@ -15,3 +15,12 @@ def getRoutes(request):
 @api_view(['GET'])
 def getProducts(request):
     return Response(products)
+
+@api_view(['GET'])
+def getProduct(request, id):
+    product = None
+    for p in products:
+        if p['_id'] == id:
+            product = p
+            break
+    return Response(product)
